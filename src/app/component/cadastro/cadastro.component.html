@@ -1,0 +1,154 @@
+<div class="container form-container">
+    <div class="header">
+        <h2 [ngStyle]="{textAlign:'center', fontWeight: 'bolder', marginBottom: '5rem'}">Avaliação Fisioterapeutica</h2>
+    </div>
+
+    <form #f="ngForm" (ngSubmit)="onSubmit(f)">
+
+        <div class="identificação sectionForm">
+
+            <h3 [ngStyle]="{fontWeight: 'bolder'}">Identificação</h3>
+
+            <div class="form-group row">
+
+
+                <div class=" col mb-3 formItem">
+                    <label class="form-label">Nome:</label>
+                    <input type="text" class="form-control" id="exampleInputPassword1" name="nameUser"
+                        [(ngModel)]="paciente.nome" required #nameUser="ngModel">
+
+                    <div class="alert alert-danger" role="alert"
+                        [ngStyle]="{ backgroundColor: 'transparent', padding: '5px', border: 'none'}"
+                        *ngIf="!nameUser.valid && nameUser.touched">
+                        * Nome Obrigatório.
+                    </div>
+
+                </div>
+
+                <div class="col-mb-3 formItem">
+
+                    <label class="form-label">Data de Nascimento:</label>
+                    <input type="date" class="form-control" id="exampleInputPassword1" name="date"
+                        [(ngModel)]="paciente.data" required #data="ngModel">
+                    <div class="alert alert-danger" role="alert"
+                        [ngStyle]="{ backgroundColor: 'transparent', padding: '5px', border: 'none'}"
+                        *ngIf="!data.valid && data.touched">
+                        <P>* Data de Aniversário Obrigatório.</P>
+                    </div>
+
+                </div>
+
+
+            </div>
+
+            <div class="form-group row">
+
+                <div class=" col mb-3 formItem">
+                    <label class="form-label">Telefone:</label>
+                    <input type="text" class="form-control" name="telefone" [(ngModel)]="paciente.telefone" required
+                        #telefone="ngModel">
+
+                    <div class="alert alert-danger" role="alert"
+                        [ngStyle]="{ backgroundColor: 'transparent', padding: '5px', border: 'none'}"
+                        *ngIf="!telefone.valid && telefone.touched">
+                        * Telefone Obrigatório.
+                    </div>
+
+                </div>
+
+                <div class=" col mb-3 formItem">
+                    <label class="form-label">Sexo:</label>
+                    <select class="form-select" aria-label="Default select example " #sexo="ngModel"
+                        [(ngModel)]="paciente.sexo" required [ngModelOptions]="{standalone: true}">
+                        <option selected>Selecione o Sexo</option>
+                        <option value="masculino">MASCULINO</option>
+                        <option value="feminino">FEMININO</option>
+
+                    </select>
+
+                    <div class="alert alert-danger" role="alert"
+                        [ngStyle]="{ backgroundColor: 'transparent', padding: '5px', border: 'none'}"
+                        *ngIf="!sexo.valid && sexo.touched">
+                        * sexo Obrigatório.
+                    </div>
+
+                </div>
+
+
+            </div>
+
+            <div class="form-group">
+                <div class="col mb-3 formItem">
+
+                    <label for="profissao">Profissão</label>
+                    <input type="text" class="form-control" name="profissao" [(ngModel)]="paciente.profissao" required
+                        #profissao="ngModel">
+                    <div class="alert alert-danger" role="alert"
+                        [ngStyle]="{ backgroundColor: 'transparent', padding: '5px', border: 'none'}"
+                        *ngIf="!profissao.valid && profissao.touched">
+                        * Profissao Obrigatório.
+                    </div>
+                </div>
+            </div>
+
+        </div>
+
+        <div class="sectionForm">
+            <h3 [ngStyle]="{fontWeight: 'bolder'}">Endereço</h3>
+
+            <div class="form-group row">
+                <div class="formItem">
+                    <label class="form-label">Cidade:</label>
+                    <input type="text" class="form-control" id="exampleInputPassword1" name="cidade"
+                        [(ngModel)]="paciente.cidade" required #cidade="ngModel">
+                    <div class="alert alert-danger" role="alert"
+                        [ngStyle]="{ backgroundColor: 'transparent', padding: '5px', border: 'none'}"
+                        *ngIf="!cidade.valid && cidade.touched">
+                        <P>*Cidade Obrigatória.</P>
+                    </div>
+                </div>
+
+                <div class="formItem">
+                    <label for="bairro">Bairro:</label>
+                    <input type="text" class="form-control" id="exampleInputPassword1" name="bairro"
+                        [(ngModel)]="paciente.bairro" required #bairro="ngModel">
+                    <div class="alert alert-danger" role="alert"
+                        [ngStyle]="{ backgroundColor: 'transparent', padding: '5px', border: 'none'}"
+                        *ngIf="!bairro.valid && bairro.touched">
+                        <P>*Bairro Obrigatório.</P>
+                    </div>
+                </div>
+            </div>
+
+            <div class="form-group row">
+                <div class="col mb-3" [ngStyle]="{height:'7rem'}">
+                    <label for="endereResidencial">Endereço Residencial </label>
+                    <input type="text" class="form-control" id="exampleInputPassword1" name="enderecoResidencial"
+                        [(ngModel)]="paciente.enderecoResidencial" required #enderecoResidencial="ngModel">
+                    <div class="alert alert-danger" role="alert"
+                        [ngStyle]="{ backgroundColor: 'transparent', padding: '5px', border: 'none'}"
+                        *ngIf="!enderecoResidencial.valid && enderecoResidencial.touched">
+                        <P>*Endereço Residencial Obrigatório.</P>
+                    </div>
+                </div>
+
+            </div>
+
+            <div class="form-group row">
+                <div class="col mb-3" [ngStyle]="{height:'7rem'}">
+                    <label for="enderecoComercial">Endereço Comercial </label>
+                    <input type="text" class="form-control" id="exampleInputPassword1" name="enderecoComercial"
+                        [(ngModel)]="paciente.enderecoComercial" required #enderecoComercial="ngModel">
+                    <div class="alert alert-danger" role="alert"
+                        [ngStyle]="{ backgroundColor: 'transparent', padding: '5px', border: 'none'}"
+                        *ngIf="!enderecoComercial.valid && enderecoComercial.touched">
+                        <P>*Endereço Comercial Obrigatório.</P>
+                    </div>
+                </div>
+
+            </div>
+
+        </div>
+        <button type="submit" class="btn btn-primary" [disabled]="!f.valid">Submit</button>
+    </form>
+</div>
