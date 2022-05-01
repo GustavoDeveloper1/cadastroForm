@@ -1,4 +1,5 @@
 import { Injectable } from '@angular/core';
+import { Observable } from 'rxjs';
 
 @Injectable({
   providedIn: 'root'
@@ -18,7 +19,10 @@ export class CadastroService {
         bairro :" Guara",
         enderecoResidencial : "Qe 44 conjunto M",
         enderecoComercial: "SIA"
-      }
+      },
+      estadoCivil: "solteiro",
+      diagnosticoClini: "Preguiça",
+      diagnosticoFisio: "Sedentário"
     },
     {
       nome: "Michael",
@@ -32,7 +36,10 @@ export class CadastroService {
         bairro :" Guara",
         enderecoResidencial : "Qe 44 conjunto M",
         enderecoComercial: "SIA"
-      }
+      },
+      estadoCivil: "casado",
+      diagnosticoClini: "Preguiça",
+      diagnosticoFisio: "Sedentário"
     },
     {
       nome: "Paulo",
@@ -46,7 +53,10 @@ export class CadastroService {
         bairro :" Guara",
         enderecoResidencial : "Qe 44 conjunto M",
         enderecoComercial: "SIA"
-      }
+      },
+      estadoCivil: "casado",
+      diagnosticoClini: "Preguiça",
+      diagnosticoFisio: "Sedentário"
     },
     {
       nome: "milene",
@@ -60,7 +70,10 @@ export class CadastroService {
         bairro :" Guara",
         enderecoResidencial : "Qe 44 conjunto M",
         enderecoComercial: "SIA"
-      }
+      },
+      estadoCivil: "divorciada",
+      diagnosticoClini: "Preguiça",
+      diagnosticoFisio: "Sedentário"
     },
     {
       nome: "Jordan",
@@ -74,7 +87,10 @@ export class CadastroService {
         bairro :" Guara",
         enderecoResidencial : "Qe 44 conjunto M",
         enderecoComercial: "SIA"
-      }
+      },
+      estadoCivil: "solteiro",
+      diagnosticoClini: "Preguiça",
+      diagnosticoFisio: "Sedentário"
     },
   ]
 
@@ -82,5 +98,9 @@ export class CadastroService {
 
   getPacientes() {
     return this.pacientes
+  }
+
+  adicionaCadastro(novoCadastro: any): Observable<any>{
+    return this.pacientes = novoCadastro;
   }
 }

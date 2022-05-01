@@ -15,7 +15,7 @@
                 <div class=" col mb-3 formItem">
                     <label class="form-label">Nome:</label>
                     <input type="text" class="form-control" id="exampleInputPassword1" name="nameUser"
-                        [(ngModel)]="paciente.nome" required #nameUser="ngModel">
+                        [(ngModel)]="paciente.nome" required #nameUser="ngModel" placeholder="Nome do Paciente">
 
                     <div class="alert alert-danger" role="alert"
                         [ngStyle]="{ backgroundColor: 'transparent', padding: '5px', border: 'none'}"
@@ -46,7 +46,7 @@
                 <div class=" col mb-3 formItem">
                     <label class="form-label">Telefone:</label>
                     <input type="text" class="form-control" name="telefone" [(ngModel)]="paciente.telefone" required
-                        #telefone="ngModel">
+                        #telefone="ngModel" placeholder="Paciente">
 
                     <div class="alert alert-danger" role="alert"
                         [ngStyle]="{ backgroundColor: 'transparent', padding: '5px', border: 'none'}"
@@ -59,8 +59,8 @@
                 <div class=" col mb-3 formItem">
                     <label class="form-label">Sexo:</label>
                     <select class="form-select" aria-label="Default select example " #sexo="ngModel"
-                        [(ngModel)]="paciente.sexo" required [ngModelOptions]="{standalone: true}">
-                        <option selected>Selecione o Sexo</option>
+                        [(ngModel)]="paciente.sexo" required [ngModelOptions]="{standalone: true} " >
+
                         <option value="masculino">MASCULINO</option>
                         <option value="feminino">FEMININO</option>
 
@@ -77,12 +77,48 @@
 
             </div>
 
+            <div class="form-group row">
+
+                <div class=" col mb-3 formItem">
+                    <label class="form-label">Naturalidade :</label>
+                    <input type="text" class="form-control" name="nacionalidade" [(ngModel)]="paciente.nacionalidade"
+                        required #nacionalidade="ngModel" placeholder="Nacionalidade">
+
+                    <div class="alert alert-danger" role="alert"
+                        [ngStyle]="{ backgroundColor: 'transparent', padding: '5px', border: 'none'}"
+                        *ngIf="!nacionalidade.valid && nacionalidade.touched">
+                        * nacionalidade Obrigatória.
+                    </div>
+
+                </div>
+
+                <div class=" col mb-3 formItem">
+                    <label class="form-label">Estado Civil:</label>
+                    <select class="form-select" aria-label="Default select example " #estadoCivil="ngModel"
+                        [(ngModel)]="paciente.estadoCivil" required [ngModelOptions]="{standalone: true} ">
+                        <option selected>Selecione o Estado Civil</option>
+                        <option value="masculino">Solteiro</option>
+                        <option value="feminino">Casado</option>
+
+                    </select>
+
+                    <div class="alert alert-danger" role="alert"
+                        [ngStyle]="{ backgroundColor: 'transparent', padding: '5px', border: 'none'}"
+                        *ngIf="!estadoCivil.valid && estadoCivil.touched">
+                        * Estado Civil Obrigatório.
+                    </div>
+
+                </div>
+
+
+            </div>
+
             <div class="form-group">
                 <div class="col mb-3 formItem">
 
                     <label for="profissao">Profissão</label>
                     <input type="text" class="form-control" name="profissao" [(ngModel)]="paciente.profissao" required
-                        #profissao="ngModel">
+                        #profissao="ngModel" placeholder="Profissão">
                     <div class="alert alert-danger" role="alert"
                         [ngStyle]="{ backgroundColor: 'transparent', padding: '5px', border: 'none'}"
                         *ngIf="!profissao.valid && profissao.touched">
@@ -93,14 +129,14 @@
 
         </div>
 
-        <div class="sectionForm">
+        <div class="sectionForm"ngModelGroup="endereco">
             <h3 [ngStyle]="{fontWeight: 'bolder'}">Endereço</h3>
 
             <div class="form-group row">
                 <div class="formItem">
                     <label class="form-label">Cidade:</label>
                     <input type="text" class="form-control" id="exampleInputPassword1" name="cidade"
-                        [(ngModel)]="paciente.cidade" required #cidade="ngModel">
+                        [(ngModel)]="paciente.cidade" required #cidade="ngModel" placeholder="cidade">
                     <div class="alert alert-danger" role="alert"
                         [ngStyle]="{ backgroundColor: 'transparent', padding: '5px', border: 'none'}"
                         *ngIf="!cidade.valid && cidade.touched">
@@ -111,7 +147,7 @@
                 <div class="formItem">
                     <label for="bairro">Bairro:</label>
                     <input type="text" class="form-control" id="exampleInputPassword1" name="bairro"
-                        [(ngModel)]="paciente.bairro" required #bairro="ngModel">
+                        [(ngModel)]="paciente.bairro" required #bairro="ngModel" placeholder="Bairro">
                     <div class="alert alert-danger" role="alert"
                         [ngStyle]="{ backgroundColor: 'transparent', padding: '5px', border: 'none'}"
                         *ngIf="!bairro.valid && bairro.touched">
@@ -120,11 +156,12 @@
                 </div>
             </div>
 
-            <div class="form-group row">
+            <div class="form-group row" >
                 <div class="col mb-3" [ngStyle]="{height:'7rem'}">
                     <label for="endereResidencial">Endereço Residencial </label>
                     <input type="text" class="form-control" id="exampleInputPassword1" name="enderecoResidencial"
-                        [(ngModel)]="paciente.enderecoResidencial" required #enderecoResidencial="ngModel">
+                        [(ngModel)]="paciente.enderecoResidencial" required #enderecoResidencial="ngModel"
+                        placeholder="Endereço Residencial">
                     <div class="alert alert-danger" role="alert"
                         [ngStyle]="{ backgroundColor: 'transparent', padding: '5px', border: 'none'}"
                         *ngIf="!enderecoResidencial.valid && enderecoResidencial.touched">
@@ -138,7 +175,8 @@
                 <div class="col mb-3" [ngStyle]="{height:'7rem'}">
                     <label for="enderecoComercial">Endereço Comercial </label>
                     <input type="text" class="form-control" id="exampleInputPassword1" name="enderecoComercial"
-                        [(ngModel)]="paciente.enderecoComercial" required #enderecoComercial="ngModel">
+                        [(ngModel)]="paciente.enderecoComercial" required #enderecoComercial="ngModel"
+                        placeholder="Endereço Comercial">
                     <div class="alert alert-danger" role="alert"
                         [ngStyle]="{ backgroundColor: 'transparent', padding: '5px', border: 'none'}"
                         *ngIf="!enderecoComercial.valid && enderecoComercial.touched">
@@ -149,6 +187,39 @@
             </div>
 
         </div>
+
+        <div class="sectionForm">
+            <h3 [ngStyle]="{fontWeight: 'bolder'}">Diagnóstico </h3>
+            <div class="form-group" [ngStyle]=" {display : 'flex', flexDirection: 'column'} ">
+                <div [ngStyle]="{width : '100%', marginBottom: '15px', height : '7rem' }">
+                    <label for="DesafioClinico">Desafio Clinico: </label>
+                    <input type="text" class="form-control" name="diagnosticoClini"
+                        [(ngModel)]="paciente.diagnosticoClini" required #diagnosticoClini="ngModel"
+                        placeholder="Diagnóstico Clinico">
+                    <div class="alert alert-danger" role="alert"
+                        [ngStyle]="{ backgroundColor: 'transparent', padding: '5px', border: 'none'}"
+                        *ngIf="!diagnosticoClini.valid && diagnosticoClini.touched">
+                        <P>*Diagnóstico Clinico Obrigatório.</P>
+                    </div>
+                </div>
+
+                <div [ngStyle]="{width : '100%', marginBottom: '15px', height : '5rem' }">
+                    <label for="desafioFisio">Diagnóstico Fisioterapêutico :</label>
+                    <input type="text" class="form-control" name="diagnosticoFisio"
+                        [(ngModel)]="paciente.diagnosticoFisio" required #diagnosticoFisio="ngModel"
+                        placeholder="Diagnóstico Fisioterapêutico">
+                    <div class="alert alert-danger" role="alert"
+                        [ngStyle]="{ backgroundColor: 'transparent', padding: '5px', border: 'none'}"
+                        *ngIf="!diagnosticoFisio.valid && diagnosticoFisio.touched">
+                        <P>*Diagnóstico  Obrigatório.</P>
+                    </div>
+                </div>
+            </div>
+
+
+
+        </div>
+
         <button type="submit" class="btn btn-primary" [disabled]="!f.valid">Submit</button>
     </form>
 </div>

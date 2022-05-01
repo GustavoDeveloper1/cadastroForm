@@ -20,7 +20,10 @@ export class CadastroComponent implements OnInit {
         bairro: null,
         enderecoResidencial: null,
         enderecoComercial: null
-      }
+      },
+      estadoCivil:null,
+      diagnosticoClini: null,
+      diagnosticoFisio: null
     }
   ]
 
